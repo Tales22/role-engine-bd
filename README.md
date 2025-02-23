@@ -68,7 +68,7 @@ Si ves la lista de tablas, ¡todo está listo! 🎉
 Si necesitas modificar la base de datos, puedes hacer cambios y luego generar un nuevo backup con:
 
 ```bash
-mysqldump -u root -p anima_db > backup.sql
+mysqldump -u root -p role_engine_db > backup.sql
 ```
 
 Después, sube los cambios al repositorio con Git.
