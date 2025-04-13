@@ -13,14 +13,24 @@ CREATE TABLE IF NOT EXISTS usuarios (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS partidas (
+  id INT NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL,
+  master_id INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (id_master) REFERENCES usuario(id) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS personajes (
   id INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
   nivel INT DEFAULT 1,
   raza VARCHAR(50),
   clase VARCHAR(50),
+  partida_id INT,
   usuario_id INT,
   PRIMARY KEY (id),
+  FOREIGN KEY (partida_id) REFERENCES partidas(id) ON DELETE CASCADE,
   FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
